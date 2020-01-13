@@ -48,16 +48,16 @@
   };
 </script>
 
-  <meta name="description" content="vue的生命周期是什么，如何产生，它有什么作用，如何使用 vue生命周期是什么我们通常认为生命周期是指一个事物从新生到死亡的过程，在vue中也是如此，在我们创建vue对象之时，生命周期便开始了，直到我们不再使用vue对象，生命周期也随之结束。 所有学习vue的人都一定见过来自官网的图示">
+  <meta name="description" content="vue的生命周期是什么，如何产生，它有什么作用，如何使用 vue生命周期是什么我们通常认为生命周期是指一个事物从新生到死亡的过程，在vue中也是如此，在我们创建vue对象之时，生命周期便开始了，直到我们不再使用vue对象，生命周期也随之结束。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue生命周期是什么">
 <meta property="og:url" content="http://olgasung.github.io/blog/2020/01/12/1-lifecircle/index.html">
 <meta property="og:site_name" content="Olga Sung&#39;s Blog">
-<meta property="og:description" content="vue的生命周期是什么，如何产生，它有什么作用，如何使用 vue生命周期是什么我们通常认为生命周期是指一个事物从新生到死亡的过程，在vue中也是如此，在我们创建vue对象之时，生命周期便开始了，直到我们不再使用vue对象，生命周期也随之结束。 所有学习vue的人都一定见过来自官网的图示">
+<meta property="og:description" content="vue的生命周期是什么，如何产生，它有什么作用，如何使用 vue生命周期是什么我们通常认为生命周期是指一个事物从新生到死亡的过程，在vue中也是如此，在我们创建vue对象之时，生命周期便开始了，直到我们不再使用vue对象，生命周期也随之结束。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://olgasung.github.io/blog/blog/2020/01/12/1-lifecircle/lifecycle.png">
 <meta property="article:published_time" content="2020-01-12T12:26:25.000Z">
-<meta property="article:modified_time" content="2020-01-12T14:55:18.584Z">
+<meta property="article:modified_time" content="2020-01-13T14:44:59.187Z">
 <meta property="article:author" content="Olga Sung">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -233,10 +233,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-12 20:26:25 / 修改时间：22:55:18" itemprop="dateCreated datePublished" datetime="2020-01-12T20:26:25+08:00">2020-01-12</time>
+              <time title="创建时间：2020-01-12 20:26:25" itemprop="dateCreated datePublished" datetime="2020-01-12T20:26:25+08:00">2020-01-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-13 22:44:59" itemprop="dateModified" datetime="2020-01-13T22:44:59+08:00">2020-01-13</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -275,8 +281,31 @@
       
         <p>vue的生命周期是什么，如何产生，它有什么作用，如何使用</p>
 <h2 id="vue生命周期是什么"><a href="#vue生命周期是什么" class="headerlink" title="vue生命周期是什么"></a>vue生命周期是什么</h2><p>我们通常认为生命周期是指一个事物从新生到死亡的过程，在vue中也是如此，在我们创建vue对象之时，生命周期便开始了，直到我们不再使用vue对象，生命周期也随之结束。</p>
-<p>所有学习vue的人都一定见过来自官网的图示</p>
+<a id="more"></a>
+<p>所有学习vue的人都一定见过来自官网的图示 ↓</p>
 <p><img src="/blog/blog/2020/01/12/1-lifecircle/lifecycle.png" alt="lifecycle"></p>
+<p>只看这张图，我们只能知道存在<strong>8个生命周期钩子</strong>，但作为初学者一定不懂为什么它们被称为“生命周期钩子”，这就需要我们来深入理解它们是怎么出现的。</p>
+<h2 id="从vue源码理解生命周期"><a href="#从vue源码理解生命周期" class="headerlink" title="从vue源码理解生命周期"></a>从vue源码理解生命周期</h2><p>在vue源码中目录下找到src/core/index.js的入口文件，可以发现，创建vue对象可以说是一个复杂的过程。我们暂时不需要理解太多，但需要知道，<strong>在文件的最后一行导出了一个Vue</strong>，而这个Vue也就是我们在创建vue时实例化的对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'./instance/index'</span></span><br><span class="line">  <span class="comment">//more</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Vue</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="comment">// 选项</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>回到入口文件可以发现，导出的Vue来自于第一行所导入的文件，于是我们来到src/core/instance/index.js文件，再一次发现，<strong>原来Vue是通过传入options参数并初始化所得到的对象</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vue</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//more</span></span><br><span class="line">  <span class="keyword">this</span>._init(options)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//more</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Vue</span><br></pre></td></tr></table></figure>
+
+<p>再来看src/core/instance/init.js文件，_init方法绑定在Vue的原型上，创建对象则进行初始化。在_init方法中，<strong>传入的options参数作为一个对象需要完成很多的操作，而这些操作也就可以说是vue的生命周期。</strong></p>
+<p>在一个生命周期中，有很多步骤，第一步要干什么，第二步要干什么……<strong>在Vue对象中，如果我们想要在某一个时刻做一些事情，就需要我们知道它执行到了什么阶段，而这个对象也就需要内部产生一个回调来告诉我们它已经到达了某一个阶段，可以进行一些其他的操作。</strong>这就是生命周期的意义。</p>
+<p>从代码来看（以created为例）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>created方法作为options参数被传入到_init方法中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//more</span></span><br><span class="line">callHook(vm, <span class="string">'created'</span>)</span><br><span class="line"><span class="comment">//more</span></span><br></pre></td></tr></table></figure>
+
+<p>在_init方法中，通过callHook方法接收到created参数，并执行相应操作。</p>
+<p><strong>也就是说，callHook作为一个回调告诉我们，Vue对象已经执行到生命周期中created的阶段，通过我们人为地传入参数，可以在这个阶段开始我们需要完成的操作。</strong></p>
+<h2 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子"></a>生命周期钩子</h2><p>再看一下上面提到的callHook，hook即为钩子，所以可以看出来为什么生命周期内的有些函数被命名为“生命周期钩子”，这就表明，<strong>created作为传入的函数通过钩子可以进行回调</strong>，以实现一些操作。</p>
+<p>简单来说，<strong>created，mounted这些生命周期钩子可以让我们参与到Vue对象的整个生命周期中并完成一系列操作。</strong></p>
+<p>至于如何使用，可以查看<a href="https://vuejs.org/" target="_blank" rel="noopener">官方文档</a>。</p>
 
     </div>
 
@@ -358,7 +387,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue生命周期是什么"><span class="nav-number">1.</span> <span class="nav-text">vue生命周期是什么</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue生命周期是什么"><span class="nav-number">1.</span> <span class="nav-text">vue生命周期是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从vue源码理解生命周期"><span class="nav-number">2.</span> <span class="nav-text">从vue源码理解生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期钩子"><span class="nav-number">3.</span> <span class="nav-text">生命周期钩子</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
