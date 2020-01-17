@@ -7,7 +7,7 @@
 <h2 id="vue生命周期是什么"><a href="#vue生命周期是什么" class="headerlink" title="vue生命周期是什么"></a>vue生命周期是什么</h2><p>我们通常认为生命周期是指一个事物从新生到死亡的过程，在vue中也是如此，在我们创建vue对象之时，生命周期便开始了，直到我们不再使用vue对象，生命周期也随之结束。</p>
 <a id="more"></a>
 <p>所有学习vue的人都一定见过来自官网的图示 ↓</p>
-<p><img src="/blog/blog/2020/01/12/1-lifecircle/lifecycle.png" alt="lifecycle"></p>
+<p><img src="lifecycle.png" alt="lifecycle"></p>
 <p>只看这张图，我们只能知道存在<strong>8个生命周期钩子</strong>，但作为初学者一定不懂为什么它们被称为“生命周期钩子”，这就需要我们来深入理解它们是怎么出现的。</p>
 <h2 id="从vue源码理解生命周期"><a href="#从vue源码理解生命周期" class="headerlink" title="从vue源码理解生命周期"></a>从vue源码理解生命周期</h2><p>在vue源码中目录下找到src/core/index.js的入口文件，可以发现，创建vue对象可以说是一个复杂的过程。我们暂时不需要理解太多，但需要知道，<strong>在文件的最后一行导出了一个Vue</strong>，而这个Vue也就是我们在创建vue时实例化的对象。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'./instance/index'</span></span><br><span class="line">  <span class="comment">//more</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Vue</span><br></pre></td></tr></table></figure>
