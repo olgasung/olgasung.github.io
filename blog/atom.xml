@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://olgasung.github.io/blog/"/>
-  <updated>2020-01-17T14:42:02.596Z</updated>
+  <updated>2020-01-20T13:04:40.133Z</updated>
   <id>http://olgasung.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo本地图片引用问题</title>
+    <link href="http://olgasung.github.io/blog/2020/01/20/2-hexourl/"/>
+    <id>http://olgasung.github.io/blog/2020/01/20/2-hexourl/</id>
+    <published>2020-01-20T12:18:14.000Z</published>
+    <updated>2020-01-20T13:04:40.133Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;常用方法及问题&quot;&gt;&lt;a href=&quot;#常用方法及问题&quot; class=&quot;headerlink&quot; title=&quot;常用方法及问题&quot;&gt;&lt;/a&gt;常用方法及问题&lt;/h2&gt;&lt;p&gt;我的hexo版本为4.2.0，站点配置为&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;url: http:&lt;span class=&quot;comment&quot;&gt;//olgasung.github.io/blog&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;root: &lt;span class=&quot;regexp&quot;&gt;/blog/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;因为不想使用图床，所以按照一些博客的使用方法：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="http://olgasung.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+      <category term="hexo" scheme="http://olgasung.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://olgasung.github.io/blog/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>vue生命周期是什么</title>

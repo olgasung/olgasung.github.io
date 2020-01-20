@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo本地图片引用问题</title>
+    <url>/blog/2020/01/20/2-hexourl/</url>
+    <content><![CDATA[<h2 id="常用方法及问题"><a href="#常用方法及问题" class="headerlink" title="常用方法及问题"></a>常用方法及问题</h2><p>我的hexo版本为4.2.0，站点配置为</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">url: http:<span class="comment">//olgasung.github.io/blog</span></span><br><span class="line">root: <span class="regexp">/blog/</span></span><br></pre></td></tr></table></figure>
+
+<p>因为不想使用图床，所以按照一些博客的使用方法：</p>
+<a id="more"></a>
+
+<ol>
+<li><p>首先把blog目录下的_config.yml里的psot_asset_folder:设置为true</p>
+</li>
+<li><p>在blog（hexo）目录下执行:</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在blog目录下生成md博客时，会在_post目录下看到一个与博客同名的文件夹，将想要上传的图片放到文件夹下，然后在博客中使用markdown的格式引入图片：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">![你想要输入的替代文字](xxxx/图片名.jpg)</span><br></pre></td></tr></table></figure>
+
+
+<p>但是存在路径错误的问题，在控制台检查发现图片地址为</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">src = https:<span class="comment">//olgasung.github.io/blog/blog/2020/01/12/lifecycle/lifecycle.png</span></span><br></pre></td></tr></table></figure>
+
+<p>路径错误无法加载图片，于是删除插件。</p>
+<p>查询官网，只提到配置资源文件夹，并在使用时使用相对路径。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>删除插件后</p>
+<p>在typora文档中引用图片使用相对路径图片名.后缀，而无需在前方加文件夹名。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">![你想要输入的替代文字](图片名.jpg)</span><br></pre></td></tr></table></figure>
+<p><img src="logo.png" alt="logo"></p>
+<p>本地测试通过</p>
+]]></content>
+      <categories>
+        <category>计算机</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue生命周期是什么</title>
     <url>/blog/2020/01/12/1-lifecircle/</url>
     <content><![CDATA[<p>vue的生命周期是什么，如何产生，它有什么作用，如何使用</p>
