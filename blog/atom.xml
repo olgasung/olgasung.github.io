@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="http://olgasung.github.io/blog/"/>
-  <updated>2020-01-20T13:04:40.133Z</updated>
+  <updated>2020-01-23T11:23:26.566Z</updated>
   <id>http://olgasung.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>let块级作用域及多个按钮的点击事件</title>
+    <link href="http://olgasung.github.io/blog/2020/01/23/3-letscope/"/>
+    <id>http://olgasung.github.io/blog/2020/01/23/3-letscope/</id>
+    <published>2020-01-23T11:19:36.000Z</published>
+    <updated>2020-01-23T11:23:26.566Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习JavaScript有一个很经典的问题：多个按钮的点击事件（循环作用域），在let关键字及块级作用域出现以前，解决这个问题可以说略显麻烦，代码也不简单明了，但是let的出现，让这个问题有了更简便的解决方式。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机" scheme="http://olgasung.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+      <category term="JavaScript" scheme="http://olgasung.github.io/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/JavaScript/"/>
+    
+    
+      <category term="作用域" scheme="http://olgasung.github.io/blog/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+      <category term="ES6" scheme="http://olgasung.github.io/blog/tags/ES6/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo本地图片引用问题</title>

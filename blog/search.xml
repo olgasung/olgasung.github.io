@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>let块级作用域及多个按钮的点击事件</title>
+    <url>/blog/2020/01/23/3-letscope/</url>
+    <content><![CDATA[<p>学习JavaScript有一个很经典的问题：多个按钮的点击事件（循环作用域），在let关键字及块级作用域出现以前，解决这个问题可以说略显麻烦，代码也不简单明了，但是let的出现，让这个问题有了更简便的解决方式。</p>
+<a id="more"></a>
+
+<h2 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h2><p>变量作用域可以简单地理解为变量的可用范围。</p>
+<p>而以<strong>var</strong>关键字声明的变量是没有块级作用域的，这就会导致一个问题：如果想要一个变量只在一个代码块内有效，而不允许在外部访问或改变变量值，就只能通过一些方法。所以为了解决var的局限性，在ES6中，新增了<strong>let</strong>关键字，let声明的变量带来了块级作用域。</p>
+<p>（代码块：简单的来说就是包含在一对大括号之间的代码）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="keyword">var</span> str = <span class="string">'hello world'</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br><span class="line"><span class="comment">//以var声明相当于全局变量，大括号外部也可以访问</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="keyword">let</span> str = <span class="string">'hello world'</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str);    <span class="comment">//str is not defined</span></span><br><span class="line"><span class="comment">//以let声明只在大括号内有效</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="多个按钮的点击事件"><a href="#多个按钮的点击事件" class="headerlink" title="多个按钮的点击事件"></a>多个按钮的点击事件</h2><p>从ES5到ES6，多个按钮的点击事件有以下问题及解决方式。</p>
+<p>如果使用var声明，说明 i 此时为一个全局变量，此时循环全局变量相当于一直在重复声明，重复声明导致 i 值不断被覆盖，所以在进入代码块时，它已经达成条件（ i =btns.length ），然后完成点击事件。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">    btns[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'第'</span>+i+<span class="string">"个按钮被点击"</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>闭包（借助于函数）解决：函数是一个作用域，传入的 i 不会被改变，分别属于每一个函数作用域。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">       btns[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'第'</span>+i+<span class="string">"个按钮被点击"</span>);</span><br><span class="line">       &#125;) </span><br><span class="line">    &#125;)(i) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用let声明，意味着每一个代码块都有一个作用于自己范围内的一个 i 值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> btns = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;btns.length;i++)&#123;</span><br><span class="line">    btns[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'第'</span>+i+<span class="string">"个按钮被点击"</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，ES6的let在一定程度上替代了闭包。</p>
+]]></content>
+      <categories>
+        <category>计算机</category>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>作用域</tag>
+        <tag>ES6</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo本地图片引用问题</title>
     <url>/blog/2020/01/20/2-hexourl/</url>
     <content><![CDATA[<h2 id="常用方法及问题"><a href="#常用方法及问题" class="headerlink" title="常用方法及问题"></a>常用方法及问题</h2><p>我的hexo版本为4.2.0，站点配置为</p>
