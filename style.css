@@ -1,0 +1,107 @@
+/* basic style */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width:100%;
+  height: 100%;
+  overflow: hidden;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
+.title{
+  height: 32px;
+  width: 100%;
+  font-size: 22px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+.title a{
+  display: inline-block;
+  color: white;
+  width: 200px;
+  height: 32px;
+  background-color: black;
+}
+
+
+
+
+.nav{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .wrap{
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.nav .wrap a{
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+  color: #555;
+  border-bottom: 1px solid white;
+}
+.nav .wrap a:hover{
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+
+.grid{
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid .wrap{
+  width: 80%;
+}
+.grid span{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #999;
+  margin: 0px 3px 0 0;
+}
+.grid span:nth-child(4n){
+  background-color: #fff;
+}
+.grid span:nth-child(3n){
+  background-color: #666;
+}
+.grid span:nth-child(5n){
+  background-color: #333;
+}
+
+
+
+.info{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+.info a{
+  display: inline-block;
+  margin: 0 10px;
+  color: #555;
+}
+.info a:hover{
+  color: black;
+}
